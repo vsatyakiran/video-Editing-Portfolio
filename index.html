@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Content Creator & Video Editor</title>
+    <title>AI Content Creator & Video Editor (20K+ followers)</title>
     <style>
         * {
             margin: 0;
@@ -303,6 +303,7 @@
             border: 1px solid rgba(99, 102, 241, 0.1);
             transition: all 0.3s;
             animation: fadeIn 0.6s ease-out;
+            position: relative;
         }
 
         @keyframes fadeIn {
@@ -324,40 +325,45 @@
 
         .instagram-embed {
             width: 100%;
-            min-height: 400px;
+            min-height: 500px;
             border: none;
         }
 
-        /* Add Reel Form */
-        .add-reel-section {
-            background: var(--dark-light);
-            padding: 2rem;
-            border-radius: 20px;
-            margin-top: 3rem;
-            border: 1px solid rgba(99, 102, 241, 0.1);
+        .reel-stats {
+            padding: 1.5rem;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(10px);
         }
 
-        .add-reel-form {
+        .stats-row {
             display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+            margin-top: 1rem;
         }
 
-        .add-reel-form input {
-            flex: 1;
-            min-width: 250px;
-            padding: 1rem;
-            background: var(--dark);
-            border: 1px solid rgba(99, 102, 241, 0.2);
-            border-radius: 10px;
-            color: var(--text);
-            font-size: 1rem;
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
-        .add-reel-form input:focus {
-            outline: none;
-            border-color: var(--primary);
+        .stat-icon {
+            font-size: 1.2rem;
         }
+
+        .stat-value {
+            font-weight: bold;
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+
+        .stat-label {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+
+        /* Add Reel Form - REMOVED */
 
         /* Contact Section */
         .contact-container {
@@ -519,6 +525,40 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* Pop-up animations for individual elements */
+        .service-card,
+        .portfolio-item,
+        .contact-info,
+        .contact-form {
+            opacity: 0;
+            transform: scale(0.8) translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .service-card.pop-in,
+        .portfolio-item.pop-in,
+        .contact-info.pop-in,
+        .contact-form.pop-in {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+        }
+
+        /* Staggered animation delays */
+        .service-card:nth-child(1) { transition-delay: 0.1s; }
+        .service-card:nth-child(2) { transition-delay: 0.2s; }
+        .service-card:nth-child(3) { transition-delay: 0.3s; }
+        .service-card:nth-child(4) { transition-delay: 0.4s; }
+
+        .portfolio-item:nth-child(1) { transition-delay: 0.1s; }
+        .portfolio-item:nth-child(2) { transition-delay: 0.2s; }
+        .portfolio-item:nth-child(3) { transition-delay: 0.3s; }
+        .portfolio-item:nth-child(4) { transition-delay: 0.4s; }
+        .portfolio-item:nth-child(5) { transition-delay: 0.5s; }
+        .portfolio-item:nth-child(6) { transition-delay: 0.6s; }
+
+        .contact-info { transition-delay: 0.1s; }
+        .contact-form { transition-delay: 0.3s; }
     </style>
 </head>
 <body>
@@ -582,27 +622,126 @@
             <h2>Featured Work</h2>
             <p>Explore my latest projects and creative content</p>
         </div>
-        
-        <div class="add-reel-section">
-            <h3 style="margin-bottom: 1rem;">Add Your Instagram Reels</h3>
-            <p style="color: var(--text-dim); margin-bottom: 1rem;">Paste your Instagram reel link below to embed it in the portfolio</p>
-            <div class="add-reel-form">
-                <input 
-                    type="text" 
-                    id="reelInput" 
-                    placeholder="https://www.instagram.com/reel/..."
-                >
-                <button class="btn btn-primary" onclick="addReel()">Add Reel</button>
-            </div>
-        </div>
 
         <div class="portfolio-grid" id="portfolioGrid">
-            <!-- Example placeholder - Replace with your actual Instagram reel links -->
+            <!-- Reel 1 -->
             <div class="portfolio-item">
-                <p style="padding: 2rem; text-align: center; color: var(--text-dim);">
-                    Add your first Instagram reel using the form above! <br><br>
-                    Example format: https://www.instagram.com/reel/ABC123/
-                </p>
+                <iframe 
+                    class="instagram-embed" 
+                    src="https://www.instagram.com/reel/DLFD7vFyhn5/?utm_source=ig_web_copy_link" 
+                    frameborder="0" 
+                    scrolling="no" 
+                    allowtransparency="true"
+                    loading="lazy">
+                </iframe>
+                <div class="reel-stats">
+                    <div class="stats-row">
+                        <div class="stat-item">
+                            <span class="stat-icon">👁️</span>
+                            <div>
+                                <div class="stat-value">125.5K</div>
+                                <div class="stat-label">Views</div>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-icon">❤️</span>
+                            <div>
+                                <div class="stat-value">8.2K</div>
+                                <div class="stat-label">Likes</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reel 2 -->
+            <div class="portfolio-item">
+                <iframe 
+                    class="instagram-embed" 
+                    src="YOUR_INSTAGRAM_REEL_EMBED_URL_2" 
+                    frameborder="0" 
+                    scrolling="no" 
+                    allowtransparency="true"
+                    loading="lazy">
+                </iframe>
+                <div class="reel-stats">
+                    <div class="stats-row">
+                        <div class="stat-item">
+                            <span class="stat-icon">👁️</span>
+                            <div>
+                                <div class="stat-value">98.3K</div>
+                                <div class="stat-label">Views</div>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-icon">❤️</span>
+                            <div>
+                                <div class="stat-value">6.5K</div>
+                                <div class="stat-label">Likes</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reel 3 -->
+            <div class="portfolio-item">
+                <iframe 
+                    class="instagram-embed" 
+                    src="YOUR_INSTAGRAM_REEL_EMBED_URL_3" 
+                    frameborder="0" 
+                    scrolling="no" 
+                    allowtransparency="true"
+                    loading="lazy">
+                </iframe>
+                <div class="reel-stats">
+                    <div class="stats-row">
+                        <div class="stat-item">
+                            <span class="stat-icon">👁️</span>
+                            <div>
+                                <div class="stat-value">156.7K</div>
+                                <div class="stat-label">Views</div>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-icon">❤️</span>
+                            <div>
+                                <div class="stat-value">12.4K</div>
+                                <div class="stat-label">Likes</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reel 4 -->
+            <div class="portfolio-item">
+                <iframe 
+                    class="instagram-embed" 
+                    src="YOUR_INSTAGRAM_REEL_EMBED_URL_4" 
+                    frameborder="0" 
+                    scrolling="no" 
+                    allowtransparency="true"
+                    loading="lazy">
+                </iframe>
+                <div class="reel-stats">
+                    <div class="stats-row">
+                        <div class="stat-item">
+                            <span class="stat-icon">👁️</span>
+                            <div>
+                                <div class="stat-value">203.1K</div>
+                                <div class="stat-label">Views</div>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-icon">❤️</span>
+                            <div>
+                                <div class="stat-value">15.8K</div>
+                                <div class="stat-label">Likes</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -719,55 +858,24 @@
             observer.observe(el);
         });
 
-        // Add Instagram reel to portfolio
-        function addReel() {
-            const input = document.getElementById('reelInput');
-            const url = input.value.trim();
-            
-            if (!url) {
-                alert('Please enter an Instagram reel URL');
-                return;
-            }
+        // Pop-in animation for cards and items
+        const popObserverOptions = {
+            threshold: 0.2,
+            rootMargin: '0px 0px -80px 0px'
+        };
 
-            // Convert Instagram URL to embed URL
-            let embedUrl = url;
-            if (url.includes('instagram.com/reel/')) {
-                embedUrl = url.replace(/\/$/, '') + '/embed';
-            } else if (url.includes('instagram.com/p/')) {
-                embedUrl = url.replace(/\/$/, '') + '/embed';
-            } else {
-                alert('Please enter a valid Instagram reel or post URL');
-                return;
-            }
+        const popObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('pop-in');
+                }
+            });
+        }, popObserverOptions);
 
-            const portfolioGrid = document.getElementById('portfolioGrid');
-            
-            // Remove placeholder if it exists
-            const placeholder = portfolioGrid.querySelector('.portfolio-item p');
-            if (placeholder) {
-                portfolioGrid.innerHTML = '';
-            }
-
-            // Create new portfolio item
-            const portfolioItem = document.createElement('div');
-            portfolioItem.className = 'portfolio-item';
-            portfolioItem.innerHTML = `
-                <iframe 
-                    class="instagram-embed" 
-                    src="${embedUrl}" 
-                    frameborder="0" 
-                    scrolling="no" 
-                    allowtransparency="true"
-                    loading="lazy">
-                </iframe>
-            `;
-
-            portfolioGrid.appendChild(portfolioItem);
-            input.value = '';
-            
-            // Scroll to the new item
-            portfolioItem.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
+        // Observe all elements that should pop in
+        document.querySelectorAll('.service-card, .portfolio-item, .contact-info, .contact-form').forEach(el => {
+            popObserver.observe(el);
+        });
 
         // Handle form submission
         function handleSubmit(e) {
@@ -775,13 +883,6 @@
             alert('Thank you for your message! I will get back to you soon.');
             e.target.reset();
         }
-
-        // Add enter key support for reel input
-        document.getElementById('reelInput').addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                addReel();
-            }
-        });
     </script>
 </body>
 </html>
